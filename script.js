@@ -4,10 +4,14 @@ const city = 'Spokane';
 // Units for Farenheit
 const units = 'imperial';
 const cityName=document.querySelector("h1");
-const cityTemp=document.querySelector("h3"); 
+const cityTemp=document.getElementById("temp"); 
+const weatherDesc=document.getElementById("desc");
+const windSpeed=document.getElementById("wind");
+const feelsLike=document.getElementById("feels");
 const weatherIcon = document.querySelector("img");
 
 //weather
+//const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${APIKEY}&units=${units}`;
 const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${APIKEY}&units=${units}`;
 console.log(url);
 
@@ -18,10 +22,14 @@ fetch(url)
   console.log( weatherData );
   console.log( weatherData.name );
   console.log( weatherData.main.temp );
+  console.log(weatherData.weather[0].description)
  
   cityName.textContent = weatherData.name;
-  cityTemp.textContent = weatherData.main.temp ;
-  
+  weatherDesc.textContent=
+    weatherData.weather[0].description;
+  cityTemp.textContent = weatherData.main.temp+"°F"; ;
+  feelsLike.textContent = weatherData.main.feels_like+"°F";
+  windSpeed.textContent="Wind Speed: "+weatherData.wind.speed+" mph";
   weatherIcon.setAttribute("src", `https://openweathermap.org/img/wn/${weatherData.weather[0].icon}.png`);
 }); 
 //https://api.openweathermap.org/data/2.5/weather?q=chicago
