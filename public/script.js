@@ -179,3 +179,20 @@ const allTheMonths = [
   year.innerText = gotYear;
   // Set the day of the week
   dayOfWeek.innerText = allTheDays[gotDayOfWeek];
+
+  //BizSpeak of the day
+
+  const bizURL = 'https://corporatebs-generator.sameerkumar.website/';
+
+  const bizSpeakOutput = document.getElementById('bizPhrase');
+  console.log(bizURL);
+
+  bizSpeakOutput.innerText=bizURL;
+  fetch(bizURL)
+  .then(response => response.json())
+  .then( bizSpeak => {
+    //check
+    console.log( bizSpeak );
+    console.log( bizSpeak.phrase );
+    bizSpeakOutput.innerText = bizSpeak.phrase;
+  });

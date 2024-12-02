@@ -568,8 +568,12 @@ video {
   display: flex;
 }
 
-.max-h-screen {
-  max-height: 100vh;
+.max-h-96 {
+  max-height: 24rem;
+}
+
+.min-h-full {
+  min-height: 100%;
 }
 
 .w-full {
