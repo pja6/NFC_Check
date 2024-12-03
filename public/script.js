@@ -72,7 +72,7 @@ const theClockApp = () => {
     // Optionally, append zero to single digit minutes
     gotMinutes = gotMinutes < 10 ? `0${gotMinutes}` : gotMinutes;
     // Optionally, append zero to single digit seconds
-    gotSeconds = gotSeconds < 10 ? `${gotSeconds}` : gotSeconds;
+    gotSeconds = gotSeconds < 10 ? `0${gotSeconds}` : gotSeconds;
   
     /************
   Get DOM Elements
